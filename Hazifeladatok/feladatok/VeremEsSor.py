@@ -2,52 +2,52 @@
 class Verem():
     
     def __init__(self):
-        self.verem = "["
+        self.verem = ""
 
     def betesz(self, num):
-        self.verem += " "+str(num)
+        self.verem += str(num)+" "
 
     def kivesz(self):
-        if (self.verem == "["): return None
+        if (self.verem == ""): return None
         tmpl = self.verem.split(" ")
-        self.verem = self.verem[0:len(self.verem)-len(tmpl[len(tmpl)-1])-1]
-        return int(tmpl[len(tmpl)-1])
+        self.verem = self.verem[0:len(self.verem)-1-len(tmpl[len(tmpl)-2])]
+        return int(tmpl[len(tmpl)-2])
 
     def meret(self):
-        return len(self.verem.split(" "))-1
+        return len(self.verem.split(" "))
 
     def ures(self):
-        if(self.verem == "["): return True
+        if(self.verem == ""): return True
         return False
 
     def __str__(self):
-        return self.verem
+        return "["+self.verem
 
 class Sor():
 
     def __init__(self):
-        self.sor = "["
+        self.sor = ""
 
     def beall(self, num):
-        self.sor += " "+str(num)
+        self.sor += str(num)+" "
 
     def kiall(self):
-        if (self.sor == "["): return None
+        if (self.sor == ""): return None
         tmpl = self.sor.split(" ")
-        self.sor = "["
-        for i in range(2,len(tmpl)):
-            self.sor += " "+tmpl[i]
-        return int(tmpl[1])
+        self.sor = ""
+        for i in range(1,len(tmpl)-1):
+            self.sor += tmpl[i]+" "
+        return int(tmpl[0])
 
     def meret(self):
         return len(self.sor.split(" "))-1
 
     def ures(self):
-        if(self.sor == "["): return True
+        if(self.sor == ""): return True
         return False
 
     def __str__(self):
-        return self.sor
+        return "["+self.sor
 
     
 
